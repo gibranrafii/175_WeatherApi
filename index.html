@@ -31,11 +31,36 @@
         const apiKey = "e0eca4d923eb4dae9b065520250710";
         const urlapi = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lokasi}&aqi=no`;
         
+        $.ajax({
+            url: urlapi,
+            method: "GET",
+            success: function(data) {
+                console.log(data);
+                
+                const v = document.getElementById("suhu");
+                const l = document.getElementById("suhuf");
+                const k = document.getElementById("kelembapan");
+                const n = document.getElementById("negara");
+                const p = document.getElementById("provinsi");
+                const c = document.getElementById("kecamatan");
+                const lo = document.getElementById("longititude");
+                const la = document.getElementById("latitude");
+                const lokasiInput = document.getElementById("lokasi");
+
+               
+                v.innerHTML = `Suhu Celcius: ${data.current.temp_c}°C`;
+                l.innerHTML = `Suhu Fahrenheit: ${data.current.temp_f}°F`;
+                k.innerHTML = `Kelembapan: ${data.current.humidity}%`;
+                n.innerHTML = `Negara: ${data.location.country}`;
+                p.innerHTML = `Provinsi: ${data.location.region}`;
+                c.innerHTML = `Kecamatan: ${data.location.name}`;
+                lo.innerHTML = `Longitude: ${data.location.lon}`;
+                la.innerHTML = `Latitude: ${data.location.lat}`;
+                lokasiInput.value = data.location.name;
+             
+            }
+        });
     }
-
-   
-   
-
 
     </script>
 </body>
