@@ -58,6 +58,10 @@
                 la.innerHTML = `Latitude: ${data.location.lat}`;
                 lokasiInput.value = data.location.name;
              
+            },
+            error: function(error) {
+                console.log(error);
+                alert("Lokasi tidak ditemukan atau terjadi kesalahan.");
             }
         });
     }
