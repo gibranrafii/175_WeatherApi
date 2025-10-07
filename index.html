@@ -19,67 +19,10 @@
     <div id="kelembapan"></div>
     <hr>
 
-    <h2>Lokasi</h2>
-    <div id="negara"></div>
-    <div id="provinsi"></div>
-    <div id="kecamatan"></div>
-    <div id="longititude"></div>
-    <div id="latitude"></div>
+    
 
     <script>
-    // Fungsi untuk mengambil data cuaca berdasarkan lokasi
-    function getWeather(lokasi) {
-        const apiKey = "e0eca4d923eb4dae9b065520250710";
-        const urlapi = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lokasi}&aqi=no`;
-        
-        $.ajax({
-            url: urlapi,
-            method: "GET",
-            success: function(data) {
-                console.log(data);
-                
-                const v = document.getElementById("suhu");
-                const l = document.getElementById("suhuf");
-                const k = document.getElementById("kelembapan");
-                const n = document.getElementById("negara");
-                const p = document.getElementById("provinsi");
-                const c = document.getElementById("kecamatan");
-                const lo = document.getElementById("longititude");
-                const la = document.getElementById("latitude");
-                const lokasiInput = document.getElementById("lokasi");
-
-               
-                v.innerHTML = `Suhu Celcius: ${data.current.temp_c}°C`;
-                l.innerHTML = `Suhu Fahrenheit: ${data.current.temp_f}°F`;
-                k.innerHTML = `Kelembapan: ${data.current.humidity}%`;
-                n.innerHTML = `Negara: ${data.location.country}`;
-                p.innerHTML = `Provinsi: ${data.location.region}`;
-                c.innerHTML = `Kecamatan: ${data.location.name}`;
-                lo.innerHTML = `Longitude: ${data.location.lon}`;
-                la.innerHTML = `Latitude: ${data.location.lat}`;
-                lokasiInput.value = data.location.name;
-             
-            },
-            error: function(error) {
-                console.log(error);
-                alert("Lokasi tidak ditemukan atau terjadi kesalahan.");
-            }
-        });
-    }
-
-    // Menambahkan 'event listener' saat tombol dengan id 'tombol-get' diklik
-    $('#tombol-get').on('click', function() {
-        const lokasiInput = document.getElementById("lokasi").value; 
-        
-        if (lokasiInput) {
-            getWeather(lokasiInput);
-        } else {
-            alert("Silakan masukkan nama lokasi terlebih dahulu.");
-        }
-    });
-
-    // Memuat data default untuk Yogyakarta
-    getWeather("Yogyakarta");
-</script>
+    
+    </script>
 </body>
 </html>
