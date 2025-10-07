@@ -66,6 +66,19 @@
         });
     }
 
+    
+    $('#tombol-get').on('click', function() {
+        const lokasiInput = document.getElementById("lokasi").value; 
+        
+        if (lokasiInput) {
+            getWeather(lokasiInput);
+        } else {
+            alert("Silakan masukkan nama lokasi terlebih dahulu.");
+        }
+    });
+
+    // Memuat data default untuk Yogyakarta
+    getWeather("Yogyakarta");
     </script>
 </body>
 </html>
